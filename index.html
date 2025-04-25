@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jiahang's Resume">
   <title>ANGJustinl | Jiahang | Resume</title>
-  <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
       
       <div class="resume-section">
         <h3>Education</h3>
-        <div class="education-item">
+        <div class="education-item pulse-border">
           <h4>Qinghai University | Materials Science and Engineering</h4>
           <p class="period">September 2024 – Present</p>
           <ul>
@@ -54,28 +54,56 @@
         <div class="skills-container">
           <div class="skill-group">
             <h4>Programming Languages/Tech Stack</h4>
-            <p>Python, C/C++, Lua, Golang, HTML5, Git, Linux, GitHub</p>
+            <div>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">C/C++</span>
+              <span class="skill-tag">Lua</span>
+              <span class="skill-tag">Golang</span>
+              <span class="skill-tag">HTML5</span>
+              <span class="skill-tag">Git</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">GitHub</span>
+            </div>
+            
+            <h4 style="margin-top: 1.5em">Core Skills</h4>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-width="95" style="width: 0%"></div>
+            </div>
+            <p style="margin-top: -0.5em; font-size: 0.9em">Python Development</p>
+            
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-width="85" style="width: 0%"></div>
+            </div>
+            <p style="margin-top: -0.5em; font-size: 0.9em">AI Model Training</p>
+            
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-width="80" style="width: 0%"></div>
+            </div>
+            <p style="margin-top: -0.5em; font-size: 0.9em">Linux & DevOps</p>
           </div>
-          <div class="skill-group">
-            <h4>Development & Tools Experience</h4>
-            <ul>
-              <li>Proficient in Python, mastering Conda / uv virtual environment tools</li>
-              <li>Skilled in version control with Git</li>
-              <li>Familiar with Linux and cross-platform project deployment</li>
-              <li>Experienced in blog setup and public account operations</li>
-              <li>Developed plugins for AIGC framework ComfyUI</li>
-              <li>Active in open source communities, contributed code to GitHub projects with 1k+ stars</li>
-            </ul>
+          
+          <div class="skill-group hover-reveal">
+            <h4>Development & Tools Experience <span class="floating-icon">🔄</span></h4>
+            <div class="hover-content">
+              <ul>
+                <li>Proficient in Python, mastering Conda / uv virtual environment tools</li>
+                <li>Skilled in version control with Git</li>
+                <li>Familiar with Linux and cross-platform project deployment</li>
+                <li>Experienced in blog setup and public account operations</li>
+                <li>Developed plugins for AIGC framework ComfyUI</li>
+                <li>Active in open source communities, contributed code to GitHub projects with 1k+ stars</li>
+              </ul>
+            </div>
           </div>
+          
           <div class="skill-group">
-            <h4>Artificial Intelligence Experience</h4>
+            <h4>Artificial Intelligence Experience <span class="bounce">🤖</span></h4>
             <ul>
               <li>Skilled in model building and training using PyTorch</li>
               <li>Experienced in LoRA fine-tuning and full-parameter training</li>
               <li>Independently deployed Stable Diffusion and various open-source large models</li>
               <li>Expert in Prompt Engineering</li>
               <li>Familiar with AI workflow platforms like Coze</li>
-              <li>Proficient in using commercial AI APIs, mastering application scenarios and optimization techniques</li>
             </ul>
           </div>
         </div>
@@ -105,7 +133,7 @@
 
       <div class="resume-section">
         <h3>Research Achievements</h3>
-        <div class="research-item">
+        <div class="research-item shine-button">
           <h4>Delta-WKV: A Novel Meta-in-Context Learner for MRI Super-Resolution</h4>
           <li><strong>Role:</strong> Corresponding Author</li>
           <li><strong>Paper:</strong> <a href="https://doi.org/10.48550/arXiv.2502.20852" target="_blank" rel="noopener">arXiv: 2502.20852</a></li>
@@ -118,7 +146,7 @@
         <h3>Awards & Honors</h3>
         <div class="awards-container">
           <div class="award-item">
-            <span class="award-icon">🏆</span>
+            <span class="award-icon floating-icon">🏆</span>
             <div class="award-content">
               <h4>RoboCup2023 @HomeEDU Challenge</h4>
               <p>2nd Place Team Category & 1st Place Team Video</p>
@@ -126,7 +154,7 @@
             </div>
           </div>
           <div class="award-item">
-            <span class="award-icon">🥈</span>
+            <span class="award-icon floating-icon">🥈</span>
             <div class="award-content">
               <h4>GOSIM CHINA 2024</h4>
               <p>Super Agent Programming Competition - 2nd Prize</p>
@@ -134,7 +162,7 @@
             </div>
           </div>
           <div class="award-item">
-            <span class="award-icon">🌟</span>
+            <span class="award-icon floating-icon">🌟</span>
             <div class="award-content">
               <h4>Civitai SDXL Style Model Training</h4>
               <p>Top 1000 Contributors</p>
@@ -147,7 +175,7 @@
 
     <footer>
       <div class="footer-content">
-        <div class="footer-logo animate-logo">ANGForever</div>
+        <div class="footer-logo animate-logo">ANG</div>
         <div class="footer-links">
           <a href="https://github.com/angjustinl" target="_blank" rel="noopener"><span class="link-icon">GitHub</span></a>
           <a href="mailto:angjustinl@gmail.com"><span class="link-icon">Email</span></a>
