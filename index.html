@@ -6,16 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jiahang's Resume">
   <title>ANGJustinl | Jiahang | Resume</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <main>
+    <!-- 固定装饰元素 -->
+    <div class="decoration decoration-1"></div>
+    <div class="decoration decoration-2"></div>
+    
     <header>
       <h1>Hello.</h1>
     </header>
     <section class="intro">
-      <p class="tagline">I'm Jiahang, A student majoring in AI Engineering And Materials Science.</p>
+      <p class="tagline">I'm ANGJustinl, A student majoring in AI Engineering And Materials Science.</p>
       <p>Based in <strong>Xi'an</strong>, passionate about <strong>AI technology</strong> development and research, exploring the innovative fusion of technology and <strong>materials science</strong>.</p>
       <p>Follow me on <a href="https://github.com/angjustinl" target="_blank" rel="noopener">GitHub</a>.</p>
       <p><strong>Academic Contact:</strong> <a href="mailto:angjustinl@gmail.com">angjustinl@gmail.com</a></p>
@@ -27,7 +31,7 @@
       
       <div class="resume-section">
         <h3>Education</h3>
-        <div class="education-item pulse-border">
+        <div class="education-item">
           <h4>Qinghai University | Materials Science and Engineering</h4>
           <p class="period">September 2024 – Present</p>
           <ul>
@@ -64,46 +68,29 @@
               <span class="skill-tag">Linux</span>
               <span class="skill-tag">GitHub</span>
             </div>
-            
-            <h4 style="margin-top: 1.5em">Core Skills</h4>
-            <div class="skill-progress">
-              <div class="skill-progress-bar" data-width="95" style="width: 0%"></div>
-            </div>
-            <p style="margin-top: -0.5em; font-size: 0.9em">Python Development</p>
-            
-            <div class="skill-progress">
-              <div class="skill-progress-bar" data-width="85" style="width: 0%"></div>
-            </div>
-            <p style="margin-top: -0.5em; font-size: 0.9em">AI Model Training</p>
-            
-            <div class="skill-progress">
-              <div class="skill-progress-bar" data-width="80" style="width: 0%"></div>
-            </div>
-            <p style="margin-top: -0.5em; font-size: 0.9em">Linux & DevOps</p>
-          </div>
-          
-          <div class="skill-group hover-reveal">
-            <h4>Development & Tools Experience <span class="floating-icon">🔄</span></h4>
-            <div class="hover-content">
-              <ul>
-                <li>Proficient in Python, mastering Conda / uv virtual environment tools</li>
-                <li>Skilled in version control with Git</li>
-                <li>Familiar with Linux and cross-platform project deployment</li>
-                <li>Experienced in blog setup and public account operations</li>
-                <li>Developed plugins for AIGC framework ComfyUI</li>
-                <li>Active in open source communities, contributed code to GitHub projects with 1k+ stars</li>
-              </ul>
-            </div>
           </div>
           
           <div class="skill-group">
-            <h4>Artificial Intelligence Experience <span class="bounce">🤖</span></h4>
+            <h4>Development & Tools Experience</h4>
+            <ul>
+              <li>Proficient in Python, mastering Conda / uv virtual environment tools</li>
+              <li>Skilled in version control with Git</li>
+              <li>Familiar with Linux and cross-platform project deployment</li>
+              <li>Experienced in blog setup and public account operations</li>
+              <li>Developed plugins for AIGC framework ComfyUI</li>
+              <li>Active in open source communities, contributed code to GitHub projects with 1k+ stars</li>
+            </ul>
+          </div>
+          
+          <div class="skill-group">
+            <h4>Artificial Intelligence Experience</h4>
             <ul>
               <li>Skilled in model building and training using PyTorch</li>
               <li>Experienced in LoRA fine-tuning and full-parameter training</li>
               <li>Independently deployed Stable Diffusion and various open-source large models</li>
               <li>Expert in Prompt Engineering</li>
               <li>Familiar with AI workflow platforms like Coze</li>
+              <li>Proficient in using commercial AI APIs, mastering application scenarios and optimization techniques</li>
             </ul>
           </div>
         </div>
@@ -133,12 +120,14 @@
 
       <div class="resume-section">
         <h3>Research Achievements</h3>
-        <div class="research-item shine-button">
+        <div class="research-item">
           <h4>Delta-WKV: A Novel Meta-in-Context Learner for MRI Super-Resolution</h4>
-          <li><strong>Role:</strong> Corresponding Author</li>
-          <li><strong>Paper:</strong> <a href="https://doi.org/10.48550/arXiv.2502.20852" target="_blank" rel="noopener">arXiv: 2502.20852</a></li>
-          <li><strong>Conference:</strong> MICCAI 2025</li>
-          <li><strong>Publication Date:</strong> January 2025</li>
+          <ul>
+            <li><strong>Role:</strong> Corresponding Author</li>
+            <li><strong>Paper:</strong> <a href="https://doi.org/10.48550/arXiv.2502.20852" target="_blank" rel="noopener">arXiv: 2502.20852</a></li>
+            <li><strong>Conference:</strong> MICCAI 2025</li>
+            <li><strong>Publication Date:</strong> January 2025</li>
+          </ul>
         </div>
       </div>
 
@@ -146,7 +135,7 @@
         <h3>Awards & Honors</h3>
         <div class="awards-container">
           <div class="award-item">
-            <span class="award-icon floating-icon">🏆</span>
+            <span class="award-icon">🏆</span>
             <div class="award-content">
               <h4>RoboCup2023 @HomeEDU Challenge</h4>
               <p>2nd Place Team Category & 1st Place Team Video</p>
@@ -154,7 +143,7 @@
             </div>
           </div>
           <div class="award-item">
-            <span class="award-icon floating-icon">🥈</span>
+            <span class="award-icon">🥈</span>
             <div class="award-content">
               <h4>GOSIM CHINA 2024</h4>
               <p>Super Agent Programming Competition - 2nd Prize</p>
@@ -162,7 +151,7 @@
             </div>
           </div>
           <div class="award-item">
-            <span class="award-icon floating-icon">🌟</span>
+            <span class="award-icon">🌟</span>
             <div class="award-content">
               <h4>Civitai SDXL Style Model Training</h4>
               <p>Top 1000 Contributors</p>
@@ -175,18 +164,20 @@
 
     <footer>
       <div class="footer-content">
-        <div class="footer-logo animate-logo">ANG</div>
+        <div class="footer-logo">ANG</div>
         <div class="footer-links">
-          <a href="https://github.com/angjustinl" target="_blank" rel="noopener"><span class="link-icon">GitHub</span></a>
-          <a href="mailto:angjustinl@gmail.com"><span class="link-icon">Email</span></a>
+          <a href="https://github.com/angjustinl" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:angjustinl@gmail.com">Email</a>
         </div>
       </div>
       <div class="copyright">
-        <p>© 2025 ANGJustinl • All rights reserved</p>
-        <p class="made-with">Made with <span class="heart">♥</span> in Xi'an</p>
+        <p>© 2025 ANGForever • All rights reserved</p>
+        <p class="made-with">Made with <span class="heart">♥</span> and HTML5</p>
       </div>
-      <div class="back-to-top" id="backToTop">↑</div>
     </footer>
+    
+    <!-- 回到顶部按钮 -->
+    <div class="back-to-top" id="backToTop">↑</div>
   </main>
   
   <script src="js/main.js"></script>
