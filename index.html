@@ -1,65 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>ANGJustinl</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jiahang's Resume">
+  <title>ANGJustinl | Jiahang | Resume</title>
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,500,700" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      font-size: calc(10px + 0.33vw);
-      -webkit-font-smoothing: antialiased;
-      padding: 5vh 10vw;
-      color: #121314;
-    }
-    h1 {
-      font-size: 4.5em;
-      font-weight: 500;
-      margin-bottom: 0;
-    }
-    p {
-      font-size: 1.6em;
-      font-weight: 300;
-      line-height: 1.4;
-      max-width: 26em;
-    }
-    a {
-      text-decoration: none;
-      color: #121314;
-      position: relative;
-    }
-    a:after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 80%;
-      left: -0.1em;
-      right: -0.1em;
-      bottom: 0;
-      transition: top 200ms cubic-bezier(0, .8, .13, 1);
-      background-color: rgba(255, 225, 11, 0.82);
-    }
-    a:hover:after {
-      top: 0%;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <h1>Hello.</h1>
-  <p style="font-weight:500; font-size:2.2em">
-   Im ANG, A Pre-College Student.
-  </p>
-  <p>
-    Located Xi'an, Learning * For Hobbies and Interests
-  </p>
-  <p>
-    On <a href="https://github.com/angjustinl" target="_blank">GitHub</a>.
-  </p>
-  <p>
-    <strong>Contact Me.</strong> contact@mail.angforever.top
-  </p>
-  <p>🚧</p>
+  <main>
+    <header>
+      <h1>Hello.</h1>
+    </header>
+    <section class="intro">
+      <p class="tagline">I'm Jiahang, A student majoring in AI Engineering And Materials Science.</p>
+      <p>Based in <strong>Xi'an</strong>, passionate about <strong>AI technology</strong> development and research, exploring the innovative fusion of technology and <strong>materials science</strong>.</p>
+      <p>Follow me on <a href="https://github.com/angjustinl" target="_blank" rel="noopener">GitHub</a>.</p>
+      <p><strong>Academic Contact:</strong> <a href="mailto:angjustinl@gmail.com">angjustinl@gmail.com</a></p>
+      <p><strong>Other Contact:</strong> <a href="mailto:contact@mail.angforever.top">contact@mail.angforever.top</a></p>
+    </section>
+
+    <section class="resume">
+      <h2>Professional Profile</h2>
+      
+      <div class="resume-section">
+        <h3>Education</h3>
+        <div class="education-item">
+          <h4>Qinghai University | Materials Science and Engineering</h4>
+          <p class="period">September 2024 – Present</p>
+          <ul>
+            <li>Passed the interview for Materials Science Innovation Class, serving as Class Innovation and Entrepreneurship Committee member</li>
+            <li>Member of the College's Embedded Artificial Intelligence Laboratory and AI Workshop</li>
+            <li>Innovation and Entrepreneurship Coordinator for the School of Mechanical Engineering</li>
+            <li>Won second prize in GOSIM CHINA 2024 Super Agent Programming Competition</li>
+          </ul>
+        </div>
+        <div class="education-item">
+          <h4>Xi'an High-Tech No.1 High School (Provincial Model School)</h4>
+          <p class="period">September 2021 – June 2024</p>
+          <ul>
+            <li>Deputy Director of Students' Living Department, Student Union</li>
+            <li>Lead programmer for AtHome service robot club</li>
+            <li>Received honors including 'Outstanding Student' and 'Technology Creation Star'</li>
+            <li>Led team in RoboCup2023 @HomeEDU Challenge, winning second place in team category and first place in team video</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Professional Skills</h3>
+        <div class="skills-container">
+          <div class="skill-group">
+            <h4>Programming Languages/Tech Stack</h4>
+            <p>Python, C/C++, Lua, Golang, HTML5, Git, Linux, GitHub</p>
+          </div>
+          <div class="skill-group">
+            <h4>Development & Tools Experience</h4>
+            <ul>
+              <li>Proficient in Python, mastering Conda / uv virtual environment tools</li>
+              <li>Skilled in version control with Git</li>
+              <li>Familiar with Linux and cross-platform project deployment</li>
+              <li>Experienced in blog setup and public account operations</li>
+              <li>Developed plugins for AIGC framework ComfyUI</li>
+              <li>Active in open source communities, contributed code to GitHub projects with 1k+ stars</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h4>Artificial Intelligence Experience</h4>
+            <ul>
+              <li>Skilled in model building and training using PyTorch</li>
+              <li>Experienced in LoRA fine-tuning and full-parameter training</li>
+              <li>Independently deployed Stable Diffusion and various open-source large models</li>
+              <li>Expert in Prompt Engineering</li>
+              <li>Familiar with AI workflow platforms like Coze</li>
+              <li>Proficient in using commercial AI APIs, mastering application scenarios and optimization techniques</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Practical & Project Experience</h3>
+        <div class="experience-item">
+          <h4>Model Annotator / Trainer – Civitai</h4>
+          <p class="period">June 2024 – Present</p>
+          <ul>
+            <li>Participated in RLHF data annotation</li>
+            <li>Undertook LoRA model training tasks, responsible for training set construction and annotation</li>
+            <li>Possessing complete training workflow experience</li>
+          </ul>
+        </div>
+        <div class="experience-item">
+          <h4>Learning Experience</h4>
+          <ul>
+            <li><strong>HuggingFace & Pytorch.org</strong> (06.2024 – 02.2025)<br>
+              Systematically studied PyTorch framework and Transformers architecture</li>
+            <li><strong>Datawhale Member/Assistant</strong> (11.2024 – Present)<br>
+              Participated in multiple boot camps and learning activities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Research Achievements</h3>
+        <div class="research-item">
+          <h4>Delta-WKV: A Novel Meta-in-Context Learner for MRI Super-Resolution</h4>
+          <li><strong>Role:</strong> Corresponding Author</li>
+          <li><strong>Paper:</strong> <a href="https://doi.org/10.48550/arXiv.2502.20852" target="_blank" rel="noopener">arXiv: 2502.20852</a></li>
+          <li><strong>Conference:</strong> MICCAI 2025</li>
+          <li><strong>Publication Date:</strong> January 2025</li>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <h3>Awards & Honors</h3>
+        <ul class="awards-list">
+          <li>RoboCup2023 @HomeEDU Challenge - 2nd Place Team Category</li>
+          <li>RoboCup2023 @HomeEDU Challenge - 1st Place Team Video</li>
+          <li>GOSIM CHINA 2024 Super Agent Programming Competition - 2nd Prize (10.2024)</li>
+          <li>Civitai SDXL Style Model Training - Top 1000 (07.2024)</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 ANGJustinl • <a href="mailto:contact@mail.angforever.top">contact@mail.angforever.top</a> • <a href="tel:+8618149495601">+86 18149495601</a></p>
+    </footer>
+  </main>
 </body>
 </html>
