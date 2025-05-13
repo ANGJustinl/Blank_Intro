@@ -1,135 +1,161 @@
 /**
- * Resume Renderer Configuration File - Test Version
- * Modify this file to customize the appearance and behavior of your resume.
+ * Resume Renderer Example Configuration File
+ * ------------------------------------------
+ * This file serves as a template for configuring your resume.
+ * Modify the values below to customize the appearance, content source,
+ * and behavior of your rendered resume.
+ *
+ * Instructions:
+ * 1. Rename this file to `config.js` in the `js/` directory.
+ * 2. Update `resume_example.md` with your resume content, or point
+ *    `site.markdownFile` to your own Markdown file.
+ * 3. Customize the settings below to your liking.
  */
 
 const resumeConfig = {
-  // Basic Information
+  // === BASIC SITE INFORMATION ===
   site: {
-    title: "Test User's Awesome Resume",        // Page Title
-    description: "A test configuration for the resume.", // Page Description
-    mainWebsite: "https://example.com",          // Main Website Link
-    websiteLinkText: "Visit Example.com",        // Top-right Website Link Text
-    markdownFile: "resume.md",              // Markdown resume file path (TEST VALUE)
-    favicon: "favicon-test.ico",                 // Website icon (TEST VALUE)
+    title: "Your Name | Professional Title",         // Appears in the browser tab
+    description: "A brief description of Your Name and their resume.", // For SEO and social sharing
+    mainWebsite: "https://your-website.com",         // Link to your main personal or professional website
+    websiteLinkText: "Visit My Website",             // Text for the link in the top-right corner
+    markdownFile: "resume_example.md",               // Path to your Markdown resume file (relative to index.html)
+    favicon: "icons/favicon_example.png",            // Path to your website icon (e.g., .ico, .png)
   },
   
-  // Theme and Styles
+  // === THEME AND STYLES ===
   theme: {
     colors: {
-      primary: "#3498db",                      // Primary color (Test: Blue)
-      accent: "rgba(231, 76, 60, 0.82)",       // Accent color (Test: Red)
-      accentLight: "rgba(231, 76, 60, 0.2)",   // Accent color (light version)
-      background: "#f0f0f0",                   // Background color (Test: Light Gray)
-      text: "#333333",                         // Text color (Test: Dark Gray)
-      secondaryText: "#7f8c8d",                // Secondary text color
-      borderColor: "#bdc3c7",                  // Border color
-      shadowColor: "rgba(0, 0, 0, 0.1)"        // Shadow color
+      primary: "#3498db",                      // Main theme color (e.g., for links, highlights)
+      accent: "rgba(52, 152, 219, 0.85)",      // Accent color (often a variation of primary)
+      accentLight: "rgba(52, 152, 219, 0.15)",  // Lighter version of accent (e.g., for backgrounds)
+      background: "#ffffff",                   // Page background color
+      text: "#333333",                         // Main text color
+      secondaryText: "#555555",                // Secondary text color (e.g., for dates, subtitles)
+      borderColor: "#dddddd",                  // Border color for elements
+      shadowColor: "rgba(0, 0, 0, 0.1)"        // Shadow color for cards or sections
     },
     fonts: {
-      main: `"Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`,
-      googleFonts: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" // Test: Open Sans
+      // Main font stack for the resume
+      main: `"Helvetica Neue", Helvetica, Arial, sans-serif`, 
+      // URL for Google Fonts (if you want to use them). Leave empty if not using Google Fonts.
+      // Example: "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
+      googleFonts: "" 
     }
   },
   
-  // Special Section Configuration
+  // === SPECIAL SECTION RENDERING ===
+  // Configure how specific sections (identified by their H3 titles in Markdown) are rendered.
   sections: {
     specialSections: {
-      "Key Skills": { // Renamed from "Professional Skills" for testing
-        type: "skills",
-        skillTagsTitle: "Core Competencies", // Renamed for testing
-        container: "skills-container-test",
-        itemClass: "skill-group-test",
-        useSkillIcons: true,
+      // Example: Configuration for a "Skills" section
+      "Skills": { // This MUST match the H3 title in your Markdown (e.g., "### Skills")
+        type: "skills",                             // Special rendering type for skills
+        skillTagsTitle: "Technical Proficiencies",  // This H4 title within "Skills" section triggers skill icon generation
+        container: "skills-showcase-container",     // Custom CSS class for the skills section container
+        itemClass: "skill-category-group",          // Custom CSS class for each skill group (under H4)
+        useSkillIcons: true,                        // Set to true to use skillicons.dev for skills listed under skillTagsTitle
         skillIconsConfig: {
-          theme: "dark", // Test: Dark theme for icons
-          perline: 10,
-          skillMap: {
-            "JavaScript": "js",
-            "React": "react",
-            "Node.js": "nodejs",
-            "Docker": "docker"
-          }
+          theme: "light",                           // "light" or "dark" theme for skillicons.dev
+          perline: 10,                              // Number of icons per line
+          // Optional: Map custom skill names in Markdown to skillicons.dev icon IDs
+          // Example: skillMap: { "JavaScript ES6+": "js", "NodeJS": "nodejs" }
+          skillMap: {} 
         }
       },
-      "Achievements": { // Renamed from "Awards & Honors" for testing
-        type: "awards",
-        container: "awards-container-test",
-        itemClass: "award-item-test"
+      // Example: Configuration for an "Awards" or "Honors" section
+      "Awards and Recognition": { // This MUST match the H3 title in your Markdown (e.g., "### Awards and Recognition")
+        type: "awards",                             // Special rendering type for awards
+        container: "achievements-gallery-container",// Custom CSS class for the awards section container
+        itemClass: "award-highlight-item"           // Custom CSS class for each award item
       }
+      // Add more special sections here if needed, following the pattern above.
     },
-    itemClassBySection: {
-      "Education History": "education-item-test", // Renamed for testing
-      "Research Work": "research-item-test",   // Renamed for testing
-      "default": "experience-item-test"
+    // Default CSS class for items within general sections (not defined in specialSections)
+    // These are applied to divs wrapping content under H4 titles.
+    itemClassBySection: { 
+      "Education": "education-entry",
+      "Experience": "job-role",
+      // Add other H3 titles and their desired item classes here
+      "default": "content-item" // Default class if no specific H3 match is found
     }
   },
   
-  // Markdown Parsing Configuration
+  // === MARKDOWN PARSING CUSTOMIZATION ===
+  // Define custom Markdown comment-based markers for special formatting.
   markdownParsing: {
     markers: {
-      period: {
-        start: "<!-- date-range -->", // Test: Changed marker
-        end: "<!-- /date-range -->",
-        outputClass: "date-period"     // Test: Changed class
+      // For time periods (e.g., education dates, job durations)
+      period: { 
+        start: "<!-- period -->",           // Start marker for a time period
+        end: "<!-- /period -->",            // End marker for a time period
+        outputClass: "timeline-date"        // CSS class applied to the rendered period
       },
-      skillTags: {
-        start: "<!-- tech-stack -->", // Test: Changed marker
-        end: "<!-- /tech-stack -->",
-        outputClass: "tech-tags"
+      // For lists of skills to be potentially processed by skillicons.dev (if useSkillIcons is true for the section)
+      skillTags: { 
+        start: "<!-- skills -->",           // Start marker for a block of skill tags
+        end: "<!-- /skills -->",            // End marker for a block of skill tags
+        outputClass: "skill-tag-list"       // CSS class applied to the container of these skills (before icon processing)
       },
-      sectionType: {
-        start: "<!-- section: ",
+      // For defining section types directly in Markdown (advanced, usually not needed if using H3 titles for specialSections)
+      sectionType: { 
+        start: "<!-- section-type: ",
         end: " -->",
-        closeTag: "<!-- /section -->"
+        closeTag: "<!-- /section-type -->" // Optional closing tag for clarity
       },
-      award: {
-        start: "<!-- honor -->", // Test: Changed marker
-        end: "<!-- /honor -->",
-        dateStart: "<!-- awarded-on -->", // Test: Changed marker
-        dateEnd: "<!-- /awarded-on -->"
+      // For individual award items
+      award: { 
+        start: "<!-- award -->",            // Start marker for an award item
+        end: "<!-- /award -->",             // End marker for an award item
+        dateStart: "<!-- date -->",         // Start marker for the award date
+        dateEnd: "<!-- /date -->"           // End marker for the award date
       }
     }
   },
   
-  // Footer Configuration
+  // === FOOTER CONFIGURATION ===
   footer: {
-    logo: "TEST", // Test: Changed logo text
-    links: [
-      { text: "TestLink1", url: "#test1", target: "_self" },
-      { text: "TestLink2", url: "#test2" }
+    logo: "YN", // Your initials or a short logo text for the footer
+    links: [ // Links to display in the footer
+      { text: "GitHub", url: "https://github.com/yourusername", target: "_blank" },
+      { text: "LinkedIn", url: "https://linkedin.com/in/yourprofile", target: "_blank" }
+      // Add more links as needed
     ],
     copyright: {
-      year: "2077",                         // Test: Changed year
-      name: "Test Company Inc.",             // Test: Changed name
-      url: "https://example.org/",
-      text: "All tests reserved"
+      year: new Date().getFullYear().toString(), // Automatically uses the current year
+      name: "Your Name",                         // Your name for the copyright notice
+      url: "https://your-website.com",           // Link for your name in the copyright
+      text: "All rights reserved."               // Copyright text
     },
-    tagline: "Testing in Progress...", // Test: Changed tagline
-    icp: {
-      text: "TestICP备00000000号-0",
-      url: "https://beian.miit.gov.cn/"
+    tagline: "Crafted with passion and precision.", // A short tagline for the footer
+    icp: { // For Chinese ICP license, leave empty if not applicable
+      text: "", // Example: "京ICP备XXXXXXXX号-X"
+      url: ""   // Example: "https://beian.miit.gov.cn/"
     }
   },
   
-  // Feature Configuration
+  // === FEATURE TOGGLES ===
   features: {
-    backToTop: false,                          // Test: Disabled
-    animations: false,                         // Test: Disabled
-    backgroundDecoration: false                // Test: Disabled
+    backToTop: true,                          // Enable or disable the "Back to Top" button
+    animations: true,                         // Enable or disable subtle animations
+    backgroundDecoration: true                // Enable or disable fixed background decoration elements
   },
   
-  // Analytics Configuration
+  // === ANALYTICS CONFIGURATION ===
   analytics: {
-    googleTagId: "G-TESTTEST",
-    umamiWebsiteId: "test-umami-id"
+    // Google Analytics (Google Tag ID) - leave empty to disable
+    // Example: "G-XXXXXXXXXX"
+    googleTagId: "", 
+    // Umami Analytics (Website ID) - leave empty to disable
+    // Example: "your-umami-website-id"
+    umamiWebsiteId: "" 
   }
 };
 
-// Export configuration
+// Export configuration for use by main.js
+// This ensures 'resumeConfig' is available in the global scope (window.resumeConfig)
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = resumeConfig;  // Node.js environment
+  module.exports = resumeConfig; // For Node.js environments (e.g., testing)
 } else {
-  // Browser environment - attach to window
-  window.resumeConfig = resumeConfig;
+  window.resumeConfig = resumeConfig; // For browser environments
 }
