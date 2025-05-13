@@ -1,12 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
   // 获取配置
-  const config = window.resumeConfig || {}; 
+  const config = window.resumeConfig || {};
   
+  // 应用基本站点信息
+  applySiteInfo(config.site);
+
   // 应用主题配置到CSS变量
   applyTheme(config.theme);
 
+  // 应用分析配置
+  applyAnalytics(config.analytics);
+
   // 回到顶部按钮
-  if (config.features.backToTop !== false) {
+  if (config.features?.backToTop !== false) { // Added optional chaining for features
     setupBackToTop();
   }
 
@@ -105,6 +111,103 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // 应用基本站点信息
+  function applySiteInfo(siteConfig = {}) {
+    if (siteConfig.title) {
+      document.title = siteConfig.title;
+    }
+    if (siteConfig.description) {
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute("content", siteConfig.description);
+      }
+    }
+    if (siteConfig.favicon) {
+      let faviconLink = document.querySelector("link[rel*='icon']");
+      if (!faviconLink) {
+        faviconLink = document.createElement('link');
+        faviconLink.setAttribute('rel', 'shortcut icon');
+        document.head.appendChild(faviconLink);
+      }
+      faviconLink.setAttribute('href', siteConfig.favicon);
+    }
+
+    // Google Fonts
+    const themeFonts = window.resumeConfig?.theme?.fonts;
+    if (themeFonts?.googleFonts) {
+      let googleFontsLink = document.querySelector("link[href*='fonts.googleapis.com']");
+      if (googleFontsLink) {
+        googleFontsLink.setAttribute("href", themeFonts.googleFonts);
+      } else {
+        googleFontsLink = document.createElement('link');
+        googleFontsLink.setAttribute('rel', 'stylesheet');
+        googleFontsLink.setAttribute('href', themeFonts.googleFonts);
+        document.head.appendChild(googleFontsLink);
+      }
+    }
+    
+    // Website Link
+    const websiteLink = document.querySelector(".website-link");
+    if (websiteLink && siteConfig.mainWebsite && siteConfig.websiteLinkText) {
+      websiteLink.setAttribute("href", siteConfig.mainWebsite);
+      websiteLink.textContent = siteConfig.websiteLinkText;
+    }
+  }
+
+  // 应用分析配置
+  function applyAnalytics(analyticsConfig = {}) {
+    // Google Analytics
+    if (analyticsConfig.googleTagId) {
+      const gaScript = Array.from(document.scripts).find(s => s.src.includes('googletagmanager.com'));
+      if (gaScript) {
+        // 更新已存在的脚本中的ID
+        const newGaSrc = `https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.googleTagId}`;
+        if (gaScript.src !== newGaSrc) {
+            gaScript.src = newGaSrc; // 更新src
+             // 重新初始化gtag配置
+            const gaInitScript = Array.from(document.scripts).find(s => s.textContent.includes("gtag('config'"));
+            if (gaInitScript) {
+                gaInitScript.textContent = `
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', '${analyticsConfig.googleTagId}');
+                `;
+            }
+        }
+      } else {
+        // 添加新的GA脚本
+        const newGaScript = document.createElement('script');
+        newGaScript.async = true;
+        newGaScript.src = `https://www.googletagmanager.com/gtag/js?id=${analyticsConfig.googleTagId}`;
+        document.head.appendChild(newGaScript);
+
+        const newGaInitScript = document.createElement('script');
+        newGaInitScript.textContent = `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${analyticsConfig.googleTagId}');
+        `;
+        document.head.appendChild(newGaInitScript);
+      }
+    }
+
+    // Umami Analytics
+    if (analyticsConfig.umamiWebsiteId) {
+      const umamiScript = Array.from(document.scripts).find(s => s.src.includes('cloud.umami.is'));
+      if (umamiScript) {
+        umamiScript.setAttribute('data-website-id', analyticsConfig.umamiWebsiteId);
+      } else {
+        const newUmamiScript = document.createElement('script');
+        newUmamiScript.defer = true;
+        newUmamiScript.src = "https://cloud.umami.is/script.js"; // Umami script URL is usually fixed
+        newUmamiScript.setAttribute('data-website-id', analyticsConfig.umamiWebsiteId);
+        document.head.appendChild(newUmamiScript);
+      }
+    }
+  }
+
   // 应用主题配置
   function applyTheme(theme = {}) {
     if (!theme || !theme.colors) return;
@@ -115,6 +218,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // 设置CSS变量
     for (const [key, value] of Object.entries(colors)) {
       root.style.setProperty(`--${kebabCase(key)}`, value);
+    }
+
+    // 设置字体
+    if (theme.fonts && theme.fonts.main) {
+        root.style.setProperty('--font-main', theme.fonts.main);
     }
   }
   
