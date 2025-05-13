@@ -60,7 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const processedMarkdown = preprocessMarkdown(markdown, config.markdownParsing);
 
       // 解析Markdown
-      const parsedContent = marked.parse(processedMarkdown);
+      let parsedContent = marked.parse(processedMarkdown);
+
+      // 后处理：修复可能被错误包裹在 <pre><code> 中的奖项HTML
+      // 这个正则表达式会查找 <pre><code> 包裹的，并且内部看起来像是我们生成的 award-item 结构的内容
+      const preCodeAwardPattern = /<pre><code>([\s\S]*?<div class="award-item">[\s\S]*?<\/div>[\s\S]*?)<\/code><\/pre>/gi;
+      parsedContent = parsedContent.replace(preCodeAwardPattern, (match, innerHtml) => {
+        // 将转义的HTML标签还原
+        return innerHtml.replace(/</g, '<').replace(/>/g, '>');
+      });
 
       // 将内容分为主要部分
       const parts = parsedContent.split("<h2>");
@@ -299,16 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
           const dateMatch = content.match(new RegExp(`${escapeRegExp(dateStart)}(.*?)${escapeRegExp(dateEnd)}`));
           const date = dateMatch ? dateMatch[1].trim() : "";
 
-          return `
-            <div class="award-item">
-              <span class="award-icon">${icon}</span>
-              <div class="award-content">
-                <h4>${title}</h4>
-                <p>${description}</p>
-                <span class="award-date">${date}</span>
-              </div>
-            </div>
-          `;
+          // Return a compact HTML string without leading/trailing newlines or excessive indentation
+          return `<div class="award-item"><span class="award-icon">${icon}</span><div class="award-content"><h4>${title}</h4><p>${description}</p><span class="award-date">${date}</span></div></div>`;
         });
     }
 
