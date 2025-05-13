@@ -402,6 +402,7 @@ footer {
   margin-right: 0.8em;
   align-self: flex-start;
   line-height: 1;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", sans-serif; /* Added emoji fallback fonts */
 }
 
 .award-content {
