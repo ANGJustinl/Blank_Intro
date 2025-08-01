@@ -94,6 +94,13 @@ Super Agent Programming Competition - 2nd Prize
 <!-- /award -->
 
 <!-- award -->
+🏆 
+#### 全国大学生计算机设计大赛国赛
+3rd Prize
+<!-- date -->July 2025<!-- /date -->
+<!-- /award -->
+
+<!-- award -->
 🌟 
 #### Civitai SDXL Style Model Training
 Top 1000 Contributors
